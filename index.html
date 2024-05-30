@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+
+    <header id="fixedHeader">
+        
+        <nav>
+            <button onclick="showSection('currencyRate')" class = "nav1">Курсы валют на день</button>
+            <button onclick="showSection('currencyDynamics')" class = "nav2">Динамика курса валют</button>
+            <button onclick="showSection('currencyConverter')" class = "nav3">Конвертер валют</button>
+        </nav>
+
+    </header>
+
+    <div class = "container">
+
+        
+            <!--PAGE 1-->
+
+        <section id="currencyRate" >
+
+            <div class = "first-sec">
+
+                <p class = "textSec1">Выберите дату, для просмотра курса:</p>
+                <div class = "buttonSec1">
+                    <input type="date" id="rateDate">
+                </div>
+
+                <div class = "button2Sec1">
+                <button onclick="fetchCurrencyRates()" class = "butSec1">Посмотреть курс</button>
+                </div>
+
+            </div>
+
+            <ul id="rateList"></ul>
+        </section>
+
+
+    
+            <!--PAGE 2-->
+
+        <section id="currencyDynamics" style="display: none;">
+
+            <div class="second-sec">
+
+                <div class="buttonSec2">
+                    <p class="From-data">Дата</p>
+                    <input type="date" id="dynamicFromDate">
+                    <input type="date" id="dynamicToDate">
+                </div>
+
+                <div class="button2Sec2">
+                    <input type="text" id="currencyCode" placeholder="Код валюты">
+                    <button onclick="fetchCurrencyDynamics()" class = "butSec2">Получить динамику</button>
+                </div>
+
+            </div>
+
+            <ul id="dynamicList"></ul>
+        </section>
+
+
+
+            <!--PAGE 3-->
+
+        <section id="currencyConverter" style="display: none;">
+
+            <div class="third-sec">
+
+                <div class = "buttonSec3">
+                    <input type="text" id="currencyFrom" placeholder="Из валюты">
+                    <input type="text" id="currencyTo" placeholder="В валюту">
+                </div>
+
+                <div class = "button2Sec3">
+                    <input type="number" id="amountFrom" placeholder="Сумма">
+                    <p id="conversionResult"></p>
+                </div>
+                
+            <button onclick="convertCurrency()" class = "butSec3">Конвертировать</button>
+            </div>
+        </section>
+
+        
+    </div>
+
+</body>
+</html>
